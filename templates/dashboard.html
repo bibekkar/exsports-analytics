@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Exsports Analytics | IPL</title>
+    <title>IPL Facts | All Seasons</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -33,14 +33,14 @@
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="#" class="simple-text">
-                        EXSPORTS ANALYTICS
+                        IPL Facts
                     </a>
                 </div>
                 <ul class="nav">
                     <li class="nav-item active">
                         <a class="nav-link" href="{% url 'index' %}">
                             
-                            <p>Head To Head Statistics</p>
+                            <p>Head To Head Statistics </p>
                         </a>
                     </li>
                     <li>
@@ -94,20 +94,23 @@
                                         {% csrf_token %}
                                         <div class="row ml-1">
                                             <div class="col-md-4">
-                                                <p class="display-5">Select Player: </p>
-                                                <select name="batsman" id="batsman" class="custom-select">
-                                                    {% for player in players %}
+                                                <p class="display-5">Select Batsman: </p>
+                                                <input list="batsmans" name="batsman" id="batsman" class="custom-select">
+                                                  <datalist id="batsmans">
+                                                    {% for player in batsmanlist %}
                                                         <option name="{{player}}">{{player}}</option>
                                                     {% endfor %}
-                                                </select>
+                                                  </datalist>
                                             </div>
                                             <div class="col-md-4">
-                                                <p class="display-5">Select Player: </p>
-                                                <select name="bowler" id="bowler" class="custom-select">
-                                                    {% for player in players %}
+                                                <p class="display-5">Select Bowler: </p>
+                                                <input list="bowlers" name="bowler" id="bowler" class="custom-select">
+                                                  <datalist id="bowlers">
+                                                    {% for player in bowlerlist %}
                                                         <option name="{{player}}">{{player}}</option>
                                                     {% endfor %}
-                                                </select>
+                                                  </datalist>
+
                                             </div>
                                             <div class="col-md-4">
                                                 <input type="submit" value="Submit" class="btn btn-success mt-4">
